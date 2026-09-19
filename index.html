@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  <title>窑温</title>
+  <style>
+    body { font-family: sans-serif; margin: 40px; background: #f4efe6; color: #1c140c; }
+    h1 { font-size: 28px; }
+    #分界 { font-size: 22px; line-height: 1.6; }
+    label { display: block; margin-top: 16px; font-size: 18px; }
+    input { font-size: 22px; padding: 6px 8px; width: 160px; }
+    button { margin-top: 18px; font-size: 20px; padding: 8px 18px; }
+    #结果 { margin-top: 20px; font-size: 36px; min-height: 48px; }
+  </style>
+</head>
+<body>
+  <h1>窑温</h1>
+  <p id="分界">不到 1180 是欠烧。1180 和 1260 都算正烧。过了 1260 是过烧。</p>
+  <label>底温 <input id="底温" value="1000"></label>
+  <label>顶温 <input id="顶温" value="1220"></label>
+  <button id="分" type="button">分一下</button>
+  <div id="结果"></div>
+  <script src="分温.js"></script>
+  <script>
+    document.getElementById("分").addEventListener("click", function () {
+      var 底 = document.getElementById("底温").value;
+      var 顶 = document.getElementById("顶温").value;
+      document.getElementById("结果").textContent = 分温(底, 顶).出;
+    });
+  </script>
+</body>
+</html>
